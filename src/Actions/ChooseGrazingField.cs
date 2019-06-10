@@ -3,6 +3,7 @@ using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
+using System.Collections.Generic;
 
 namespace Trestlebridge.Actions {
     public class ChooseGrazingField {
@@ -13,10 +14,13 @@ namespace Trestlebridge.Actions {
             {
                 if(farm.GrazingFields[i].GetCount < farm.GrazingFields[i].Capacity)
                 {
-                    Console.WriteLine ($"{i + 1}. Grazing Field ({farm.GrazingFields[i].GetCount} animals)"); 
+                    Console.WriteLine ($"{i + 1}. Grazing Field ({farm.GrazingFields[i].GetCount} animals),");
+                    foreach(KeyValuePair<string, int> animals in farm.GrazingFields[i].GetTypeCount){
+                        Console.Write($" ({animals.Key}: {animals.Value}) ");
+                    }
+                    Console.WriteLine();
                 }
-                
-                
+                 
             }
 
             Console.WriteLine ();

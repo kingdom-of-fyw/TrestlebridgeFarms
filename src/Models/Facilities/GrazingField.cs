@@ -29,9 +29,9 @@ namespace Trestlebridge.Models.Facilities
                 int PigCount = 0;
                 int SheepCount = 0;
 
-                foreach (Type t in _animals)
+                foreach (IGrazing t in _animals)
                 {
-                    switch (t.Name)
+                    switch (t.GetType().Name)
                     {
                         case "Cow":
                             CowCount += 1;
