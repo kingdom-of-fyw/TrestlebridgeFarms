@@ -31,17 +31,16 @@ namespace Trestlebridge.Models
 
         public void AddGrazingField (GrazingField field)
         {
-            // Console.Clear();
             GrazingFields.Add(field);
         }
 
-        public void AddDuckHouse (DuckHouse duckhouse)
+        public void AddDuckHouse (DuckHouse duckHouse)
         {
-            DuckHouses.Add(duckhouse);
+            DuckHouses.Add(duckHouse);
         }
-        public void AddChickenHouse (ChickenHouse chickenhouse)
+        public void AddChickenHouse (ChickenHouse chickenHouse)
         {
-            ChickenHouses.Add(chickenhouse);
+            ChickenHouses.Add(chickenHouse);
         }
 
         public override string ToString()
@@ -49,6 +48,8 @@ namespace Trestlebridge.Models
             StringBuilder report = new StringBuilder();
 
             GrazingFields.ForEach(gf => report.Append(gf));
+            DuckHouses.ForEach(gf => report.Append(gf));
+            ChickenHouses.ForEach(gf => report.Append(gf));
 
             return report.ToString();
         }
