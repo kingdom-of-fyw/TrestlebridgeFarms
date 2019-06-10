@@ -13,7 +13,7 @@ namespace Trestlebridge.Actions {
             {
                 if(farm.DuckHouses[i].GetCount < farm.DuckHouses[i].Capacity)
                 {
-                    Console.WriteLine ($"{i + 1}. Duck House");    
+                    Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i].GetCount} ducks)");    
                 }
                 
             }

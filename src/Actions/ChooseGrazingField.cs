@@ -13,8 +13,9 @@ namespace Trestlebridge.Actions {
             {
                 if(farm.GrazingFields[i].GetCount < farm.GrazingFields[i].Capacity)
                 {
-                    Console.WriteLine ($"{i + 1}. Grazing Field"); 
+                    Console.WriteLine ($"{i + 1}. Grazing Field ({farm.GrazingFields[i].GetCount} animals)"); 
                 }
+                
                 
             }
 
