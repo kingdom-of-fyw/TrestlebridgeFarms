@@ -5,13 +5,19 @@ using Trestlebridge.Interfaces;
 
 
 namespace Trestlebridge.Models.Facilities {
-    public class GrazingField : IFacility<IGrazing>
+    public class GrazingField : IFacility<IGrazing>, IStorage
     {
         private int _capacity = 50;
         private Guid _id = Guid.NewGuid();
 
+        private string _FacilityType = "GrazingField";           
         private List<IGrazing> _animals = new List<IGrazing>();
 
+        public string FacilityType {
+            get {
+                return _FacilityType;
+            }
+        }
         public double Capacity {
             get {
                 return _capacity;
