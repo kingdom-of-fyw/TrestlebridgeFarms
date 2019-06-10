@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Facilities;
@@ -19,6 +20,10 @@ namespace Trestlebridge.Actions {
             {
                 case 1:
                     farm.AddGrazingField(new GrazingField());
+                    Console.WriteLine("You made a new Grazing Field");
+                    Console.WriteLine("Press a Key to return to main menu");
+                    Console.ReadKey();
+                    // Thread.Sleep(5000); source Kingdom Of Ocelader
                     break;
                 default:
                     break;
