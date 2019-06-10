@@ -4,6 +4,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -12,9 +13,20 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 15;
         private Guid _id = new Guid();
         private List<Chicken> _chickens = new List<Chicken>();
+        public double Capacity {
+            get {
+                return _capacity;
+            }
+        }
         public void AddResource(Chicken chicken)
         {
             _chickens.Add(chicken);
+
+            throw new NotImplementedException();
+        }
+        public void AddResource(List<Chicken> chickens)
+        {
+            _chickens = chickens;
 
             throw new NotImplementedException();
         }
