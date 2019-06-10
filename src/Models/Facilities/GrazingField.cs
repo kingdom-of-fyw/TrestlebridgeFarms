@@ -12,12 +12,53 @@ namespace Trestlebridge.Models.Facilities
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
-        public int GetCount {
-            get 
+        public int GetCount
+        {
+            get
             {
-                return _animals.Count; 
+                return _animals.Count;
             }
-        } 
+        }
+        public Dictionary<string, int> GetTypeCount
+        {
+            get
+            {
+                int CowCount = 0;
+                int GoatCount = 0;
+                int OstrichCount = 0;
+                int PigCount = 0;
+                int SheepCount = 0;
+
+                foreach (Type t in _animals)
+                {
+                    switch (t.Name)
+                    {
+                        case "Cow":
+                            CowCount += 1;
+                            break;
+                        case "Goat":
+                            GoatCount += 1;
+                            break;
+                        case "Ostrich":
+                            OstrichCount += 1;
+                            break;
+                        case "Sheep":
+                            SheepCount += 1;
+                            break;
+                        case "Pig":
+                            PigCount += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return new Dictionary<string, int>(){
+                    {"Cow", CowCount}, {"Goat", GoatCount}, {"Ostrich", OstrichCount}, {"Sheep", SheepCount},
+                    {"Pig", PigCount}
+                };
+
+            }
+        }
 
         public double Capacity
         {
