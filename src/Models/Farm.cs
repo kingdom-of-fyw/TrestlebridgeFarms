@@ -31,6 +31,7 @@ namespace Trestlebridge.Models
 
         public void AddGrazingField (GrazingField field)
         {
+            // Console.Clear();
             GrazingFields.Add(field);
         }
 
