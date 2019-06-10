@@ -27,7 +27,7 @@ namespace Trestlebridge.Models.Facilities
             }
             catch
             {
-                throw new NotImplementedException();
+                // throw new NotImplementedException();
             }
 
             
@@ -37,7 +37,7 @@ namespace Trestlebridge.Models.Facilities
         {
             _listOfDucks = ducks;
 
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public override string ToString()
