@@ -12,6 +12,12 @@ namespace Trestlebridge.Models.Facilities
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
+        public int GetCount {
+            get 
+            {
+                return _animals.Count; 
+            }
+        } 
 
         public double Capacity
         {
