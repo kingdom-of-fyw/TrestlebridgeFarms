@@ -28,12 +28,14 @@ namespace Trestlebridge.Actions
             switch (Int32.Parse(choice))
             {
                 case 1:
+                    ChooseChickenHouse.CollectInput(farm, new Chicken());
                     Console.WriteLine("Chickens do not graze, you fool!");
                     break;
                 case 2:
                     ChooseGrazingField.CollectInput(farm, new Cow());
                     break;
                 case 3:
+                    ChooseDuckHouse.CollectInput(farm, new Duck());
                     Console.WriteLine("Ducks do not graze, you fool!");
                     break;
                 case 4:

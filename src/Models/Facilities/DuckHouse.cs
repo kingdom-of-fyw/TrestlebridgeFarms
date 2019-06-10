@@ -20,16 +20,24 @@ namespace Trestlebridge.Models.Facilities
         }
         public void AddResource(Duck duck)
         {
-            _listOfDucks.Add(duck);
 
-            throw new NotImplementedException();
+            try
+            {
+              _listOfDucks.Add(duck);  
+            }
+            catch
+            {
+                // throw new NotImplementedException();
+            }
+
+            
         }
 
         public void AddResource(List<Duck> ducks)
         {
             _listOfDucks = ducks;
 
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public override string ToString()

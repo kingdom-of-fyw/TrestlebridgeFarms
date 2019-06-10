@@ -22,13 +22,13 @@ namespace Trestlebridge.Models.Facilities
         {
             _chickens.Add(chicken);
 
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
         public void AddResource(List<Chicken> chickens)
         {
             _chickens = chickens;
 
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
         public override string ToString()
         {
