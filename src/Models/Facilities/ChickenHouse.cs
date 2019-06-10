@@ -13,6 +13,12 @@ namespace Trestlebridge.Models.Facilities
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
         private List<Chicken> _chickens = new List<Chicken>();
+        public int GetCount {
+            get
+            {
+                return _chickens.Count;
+            }
+        }
         public double Capacity {
             get {
                 return _capacity;
