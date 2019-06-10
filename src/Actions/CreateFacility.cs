@@ -19,46 +19,51 @@ namespace Trestlebridge.Actions {
             Console.Write ("> ");
             string input = Console.ReadLine ();
 
+
             switch (Int32.Parse(input))
             {
-                case 1:
-                    farm.AddGrazingField(new GrazingField());
-                    Console.WriteLine("You made a new Grazing Field");
-                    Console.WriteLine("Press Enter to return to main menu");
-                    Console.ReadKey();
+        case 1:
+          farm.AddFacility(new GrazingField());
+          
+          Console.WriteLine("You made a new Grazing Field");
+          returnStatement();
 
-                    break;
-                // case 2:
-                //     farm.AddGrazingField(new GrazingField());
-                //     Console.WriteLine("You made a new Grazing Field");
-                //     Console.WriteLine("Press Enter to return to main menu");
-                //     Console.ReadKey();
+          break;
+        // case 2:
+        //     farm.AddGrazingField(new GrazingField());
+        //     Console.WriteLine("You made a new Grazing Field");
+        //     Console.WriteLine("Press Enter to return to main menu");
+        //     Console.ReadKey();
 
-                //     break;
-                // case 3:
-                //     farm.AddGrazingField(new GrazingField());
-                //     Console.WriteLine("You made a new Grazing Field");
-                //     Console.WriteLine("Press Enter to return to main menu");
-                //     Console.ReadKey();
+        //     break;
+        // case 3:
+        //     farm.AddGrazingField(new GrazingField());
+        //     Console.WriteLine("You made a new Grazing Field");
+        //     Console.WriteLine("Press Enter to return to main menu");
+        //     Console.ReadKey();
 
-                //     break;
-                case 4:
-                    farm.AddDuckHouse(new DuckHouse());
+        //     break;
+        case 4:
+                    farm.AddFacility(new DuckHouse());
                     Console.WriteLine("A new Duck House has been built.");
-                    Console.WriteLine("Press Enter to return to main menu");
-                    Console.ReadKey();
+                    returnStatement();
 
                     break;
                 case 5:
-                    farm.AddChickenHouse(new ChickenHouse());
+                    farm.AddFacility(new ChickenHouse());
                     Console.WriteLine("A new Chicken House has been built.");
-                    Console.WriteLine("Press Enter to return to main menu");
-                    Console.ReadKey();
+                    returnStatement();
 
                     break;
                 default:
                     break;
             }
         }
+
+    private static void returnStatement()
+    {
+      Console.WriteLine("Press Enter to return to main menu");
+      Console.ReadKey();
     }
+  }
 }

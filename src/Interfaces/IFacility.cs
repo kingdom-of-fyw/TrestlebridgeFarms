@@ -3,7 +3,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Interfaces
 {
-    public interface IFacility<T>
+    public interface IFacility<T> : IStorage
     {
         double Capacity { get; }
         

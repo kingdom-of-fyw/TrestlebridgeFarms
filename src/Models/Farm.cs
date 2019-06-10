@@ -10,10 +10,10 @@ namespace Trestlebridge.Models
 
   public class Farm
   {
-    public List<IStorage> FarmFacilities { get; set; } = new List<IStorage>();
+
     public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-    public List<IStorage> DuckHouses { get; } = new List<IStorage>();
-    public List<IStorage> ChickenHouses { get; } = new List<IStorage>();
+    public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
+    public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
 
     /*
         This method must specify the correct product interface of the
@@ -32,7 +32,7 @@ namespace Trestlebridge.Models
       }
     }
 
-    public void AddFacility(IStorage facility)
+    public void AddFacility(dynamic facility)
     {
       switch (facility.FacilityType)
       {
@@ -40,22 +40,16 @@ namespace Trestlebridge.Models
           ChickenHouses.Add(facility);
           break;
         case "DuckHouse":
+        // DuckHouse duckHouse = (DuckHouse) facility;
           DuckHouses.Add(facility);
           break;
         case "GrazingField":
+        // GrazingField grazingField = (GrazingField) facility;
           GrazingFields.Add(facility);
           break;
       }
     }
 
-    public void AddDuckHouse(DuckHouse duckHouse)
-    {
-      DuckHouses.Add(duckHouse);
-    }
-    public void AddChickenHouse(ChickenHouse chickenHouse)
-    {
-      ChickenHouses.Add(chickenHouse);
-    }
 
     public override string ToString()
     {
