@@ -22,7 +22,6 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
 
             int option = 0;
-            // string input = Console.ReadLine();
 
             while (option == 0)
             {
