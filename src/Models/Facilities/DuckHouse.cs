@@ -8,7 +8,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<Duck>
+    public class DuckHouse : IStorage, IFacility<Duck>
     {
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
