@@ -30,43 +30,59 @@ namespace Trestlebridge
             while (true)
             {
                 DisplayBanner();
-                Console.WriteLine("1. Create Facility");
-                Console.WriteLine("2. Purchase Animals");
-                Console.WriteLine("3. Purchase Seeds");
-                Console.WriteLine("4. Display Farm Status");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine(@"1. Create Facility");
+                Console.WriteLine(@"2. Purchase Animals");
+                Console.WriteLine(@"3. Purchase Seeds");
+                Console.WriteLine(@"4. Display Farm Status");
+                Console.WriteLine(@"5. Exit");
                 Console.WriteLine();
 
                 Console.WriteLine("Choose a FARMS option");
                 Console.Write("> ");
-                string option = Console.ReadLine();
 
-                if (option == "1")
+                int option = 0;
+
+                while(option == 0)
+                {
+                    try
+                    {
+                        option = Int32.Parse(Console.ReadLine()); 
+                    }
+                    catch(FormatException)
+                    {
+                        Console.WriteLine("Please input a number!");
+                    }
+                }
+                
+                
+
+                if (option == 1)
                 {
                     DisplayBanner();
                     CreateFacility.CollectInput(Trestlebridge);
                 }
-                else if (option == "2")
+                else if (option == 2)
                 {
                     DisplayBanner();
                     PurchaseStock.CollectInput(Trestlebridge);
                 }
-                else if (option == "4")
+                else if (option == 4)
                 {
                     DisplayBanner();
                     Console.WriteLine(Trestlebridge);
-                    Console.WriteLine("\n\n\n");
+                    Console.WriteLine(@"\n\n\n");
                     Console.WriteLine("Press return key to go back to main menu.");
                     Console.ReadLine();
                 }
-                else if (option == "5")
+                else if (option == 5)
                 {
                     Console.WriteLine("Today is a great day for farming");
                     break;
                 }
                 else
                 {
-                    Console.WriteLine($"Invalid option: {option}");
+                    Console.WriteLine($"Invalid option: {option}. Press enter to return to the main menu.");
+                    Console.Read();
                 }
             }
         }
