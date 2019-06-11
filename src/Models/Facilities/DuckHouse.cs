@@ -14,13 +14,6 @@ namespace Trestlebridge.Models.Facilities
         private Guid _id = Guid.NewGuid();
         private List<Duck> _listOfDucks = new List<Duck>();
 
-        private string _FacilityType = "DuckHouse";
-
-                public string FacilityType {
-            get {
-                return _FacilityType;
-            }
-                }
         public int GetCount {
             get 
             {

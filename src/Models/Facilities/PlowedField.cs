@@ -8,21 +8,12 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowedField : IStorage, IFacility<IPlowedFieldSeed>
+  public class PlowedField : IFacility<IPlowedFieldSeed>
   {
     private int _capacity = 13;
     private Guid _id = Guid.NewGuid();
     private List<IPlowedFieldSeed> _listOfPlants = new List<IPlowedFieldSeed>();
 
-    private string _FacilityType = "PlowedField";
-
-    public string FacilityType
-    {
-      get
-      {
-        return _FacilityType;
-      }
-    }
     public int GetCount
     {
       get

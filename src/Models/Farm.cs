@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models
 {
@@ -23,37 +24,35 @@ namespace Trestlebridge.Models
      */
     public void PurchaseResource<T>(IResource resource, int index)
     {
-      Console.WriteLine(typeof(T).ToString());
-      switch (typeof(T).ToString())
+      switch (typeof(T).ToString().Split(".")[3].ToString())
       {
-        case "Cow":
-          GrazingFields[index].AddResource((IGrazing)resource);
+        case "Chicken":
+          ChickenHouses[index].AddResource((Chicken)resource);
           break;
         default:
           break;
       }
     }
 
-    public void AddFacility(dynamic facility)
+    public void AddFacility(object facility)
     {
-      switch (facility.FacilityType)
+      switch (facility)
       {
-        case "ChickenHouse":
-          ChickenHouses.Add(facility);
+        case ChickenHouse C:
+          ChickenHouses.Add(C);
           break;
-        case "DuckHouse":
-          DuckHouses.Add(facility);
+        case DuckHouse D:
+          DuckHouses.Add(D);
           break;
-        case "PlowedField":
-          PlowedFields.Add(facility);
+        case PlowedField P:
+          PlowedFields.Add(P);
           break;
-        case "GrazingField":
-          GrazingFields.Add(facility);
+        case GrazingField G:
+          GrazingFields.Add(G);
           break;
-        case "NaturalField":
-          NaturalFields.Add(facility);
+        case NaturalField N:
+          NaturalFields.Add(N);
           break;
-
       }
     }
 
@@ -62,9 +61,11 @@ namespace Trestlebridge.Models
     {
       StringBuilder report = new StringBuilder();
 
-      GrazingFields.ForEach(gf => report.Append(gf));
-      DuckHouses.ForEach(gf => report.Append(gf));
       ChickenHouses.ForEach(gf => report.Append(gf));
+      DuckHouses.ForEach(gf => report.Append(gf));
+      GrazingFields.ForEach(gf => report.Append(gf));
+
+
       NaturalFields.ForEach(gf => report.Append(gf));
       PlowedFields.ForEach(gf => report.Append(gf));
 

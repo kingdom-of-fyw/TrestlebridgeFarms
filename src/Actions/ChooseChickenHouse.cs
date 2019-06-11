@@ -15,8 +15,6 @@ namespace Trestlebridge.Actions {
                 {
                    Console.WriteLine ($"{i + 1}. Chicken House ({farm.ChickenHouses[i].GetCount} chickens)");
                 }
-                
-                
             }
 
             Console.WriteLine ();
