@@ -16,19 +16,28 @@ namespace Trestlebridge.Models.Facilities
 
         private string _FacilityType = "DuckHouse";
 
-                public string FacilityType {
-            get {
+        public string FacilityType
+        {
+            get
+            {
                 return _FacilityType;
             }
-                }
-        public int GetCount {
-            get 
+        }
+        public int GetCount
+        {
+            get
             {
                 return _listOfDucks.Count;
             }
         }
-        public double Capacity {
-            get {
+        public Dictionary<string, int> GetTypeCount()
+        {
+            return new Dictionary<string, int>();
+        }
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
@@ -37,14 +46,14 @@ namespace Trestlebridge.Models.Facilities
 
             try
             {
-              _listOfDucks.Add(duck);  
+                _listOfDucks.Add(duck);
             }
             catch
             {
                 // throw new NotImplementedException();
             }
 
-            
+
         }
 
         public void AddResource(List<Duck> ducks)
@@ -64,6 +73,6 @@ namespace Trestlebridge.Models.Facilities
 
             return output.ToString();
         }
-        
+
     }
 }

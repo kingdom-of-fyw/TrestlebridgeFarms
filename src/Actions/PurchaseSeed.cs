@@ -2,6 +2,7 @@ using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Plants;
 using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions
@@ -30,14 +31,14 @@ namespace Trestlebridge.Actions
                 switch (choice)
                 {
                     case 1:
-                        ChooseChickenHouse.CollectInput(farm, new Chicken());
+                        ChoosePlowedField.CollectInput(farm, new Sesame());
                         Console.WriteLine("Chickens do not graze, you fool!");
                         break;
                     case 2:
-                        ChooseGrazingField.CollectInput(farm, new Cow());
+                        ChooseEither.CollectInput(farm, new Sunflower());
                         break;
                     case 3:
-                        ChooseDuckHouse.CollectInput(farm, new Duck());
+                        ChooseNaturalField.CollectInput(farm, new WildFlower());
                         Console.WriteLine("Ducks do not graze, you fool!");
                         break;
                     default:
