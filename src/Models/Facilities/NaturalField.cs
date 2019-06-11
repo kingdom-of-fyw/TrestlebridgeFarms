@@ -37,7 +37,7 @@ namespace Trestlebridge.Models.Facilities
             int WildflowerCount = 0;
             int SunflowerCount = 0;
 
-            foreach (INaturalFieldSeed t in _listOfPlants)
+            foreach (ISeed t in _listOfPlants)
             {
                 switch (t.GetType().Name)
                 {

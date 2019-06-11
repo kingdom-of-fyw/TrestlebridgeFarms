@@ -11,7 +11,7 @@ namespace Trestlebridge.Actions
 {
     public class ChoosePlowedField
     {
-        public static void CollectInput(Farm farm, IPlowedFieldSeed seed)
+        public static void CollectInput(Farm farm, ISeed seed)
         {
             Console.Clear();
 
