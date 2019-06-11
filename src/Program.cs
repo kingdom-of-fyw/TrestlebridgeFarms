@@ -46,43 +46,42 @@ namespace Trestlebridge
                 {
                     try
                     {
-                        option = Int32.Parse(Console.ReadLine()); 
+                        option = Int32.Parse(Console.ReadLine());
+                        switch (option)
+                        {
+                            case 1:
+                                DisplayBanner();
+                                CreateFacility.CollectInput(Trestlebridge);
+                                break;
+                            case 2:
+                                DisplayBanner();
+                                PurchaseStock.CollectInput(Trestlebridge);
+                                break;
+                            case 3:
+                                DisplayBanner();
+                                PurchaseSeed.CollectInput(Trestlebridge);
+                                break;
+                            case 4:
+                                DisplayBanner();
+                                Console.WriteLine(Trestlebridge);
+                                Console.WriteLine("\n\n\n");
+                                Console.WriteLine("Press return key to go back to main menu.");
+                                Console.ReadLine();
+                                break;
+                            case 5:
+                                Console.WriteLine("Today is a great day for farming!");
+                                System.Environment.Exit(0);
+                                break;
+                            default:
+                                Console.WriteLine($"Invalid option: {option}. Press enter to return to the main menu.");
+                                Console.Read();
+                                break;
+                        } 
                     }
                     catch(FormatException)
                     {
                         Console.WriteLine("Please input a number!");
                     }
-                }
-                
-                
-
-                if (option == 1)
-                {
-                    DisplayBanner();
-                    CreateFacility.CollectInput(Trestlebridge);
-                }
-                else if (option == 2)
-                {
-                    DisplayBanner();
-                    PurchaseStock.CollectInput(Trestlebridge);
-                }
-                else if (option == 4)
-                {
-                    DisplayBanner();
-                    Console.WriteLine(Trestlebridge);
-                    Console.WriteLine(@"\n\n\n");
-                    Console.WriteLine("Press return key to go back to main menu.");
-                    Console.ReadLine();
-                }
-                else if (option == 5)
-                {
-                    Console.WriteLine("Today is a great day for farming");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine($"Invalid option: {option}. Press enter to return to the main menu.");
-                    Console.Read();
                 }
             }
         }
