@@ -13,13 +13,7 @@ namespace Trestlebridge.Models.Facilities
     private int _capacity = 15;
     private Guid _id = Guid.NewGuid();
     private List<Chicken> _chickens = new List<Chicken>();
-    public double Capacity
-    {
-      get
-      {
-        return _capacity;
-      }
-    }
+
     private string _FacilityType = "ChickenHouse";
 
     public string FacilityType
@@ -29,17 +23,31 @@ namespace Trestlebridge.Models.Facilities
         return _FacilityType;
       }
     }
+
+    public int GetCount
+    {
+      get
+      {
+        return _chickens.Count;
+      }
+    }
+    public double Capacity
+    {
+      get
+      {
+        return _capacity;
+      }
+    }
     public void AddResource(Chicken chicken)
     {
       _chickens.Add(chicken);
 
-      throw new NotImplementedException();
+
     }
     public void AddResource(List<Chicken> chickens)
     {
       _chickens = chickens;
 
-      throw new NotImplementedException();
     }
     public override string ToString()
     {
