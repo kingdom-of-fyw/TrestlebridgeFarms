@@ -25,9 +25,8 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
 
             int choice = 0;
-            object stock = null;
 
-            while (choice == 0 && stock == null)
+            while (choice == 0)
             {
                 try
                 {
@@ -39,32 +38,26 @@ namespace Trestlebridge.Actions
                         case 1:
                             ChooseChickenHouse.CollectInput(farm, new Chicken());
                             Console.WriteLine("Chickens do not graze, you fool!");
-                            stock = new Chicken();
+
                             break;
                         case 2:
                             ChooseGrazingField.CollectInput(farm, new Cow());
-                            stock = new Cow();
                             break;
                         case 3:
                             ChooseDuckHouse.CollectInput(farm, new Duck());
                             Console.WriteLine("Ducks do not graze, you fool!");
-                            stock = new Duck();
                             break;
                         case 4:
                             ChooseGrazingField.CollectInput(farm, new Goat());
-                            stock = new Goat();
                             break;
                         case 5:
                             ChooseGrazingField.CollectInput(farm, new Ostrich());
-                            stock = new Ostrich();
                             break;
                         case 6:
                             ChooseGrazingField.CollectInput(farm, new Pig());
-                            stock = new Pig();
                             break;
                         case 7:
                             ChooseGrazingField.CollectInput(farm, new Sheep());
-                            stock = new Chicken();
                             break;
                         default:
                             Console.WriteLine("Invalid selection. Click enter to return to the main menu.");
