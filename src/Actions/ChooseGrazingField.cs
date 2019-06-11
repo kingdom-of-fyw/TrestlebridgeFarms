@@ -30,7 +30,6 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Place the {animal} where?");
 
             Console.Write ("> ");
-            try {
             int choice = Int32.Parse(Console.ReadLine ());
 
             farm.GrazingFields[choice - 1].AddResource(animal);
@@ -40,9 +39,7 @@ namespace Trestlebridge.Actions {
                 Stretch goal. Only if the app is fully functional.
              */
             // farm.PurchaseResource<IGrazing>(animal, choice);
-            } catch {
-                return;
-            }
+
         }
     }
 }
