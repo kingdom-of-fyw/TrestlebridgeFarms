@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IPlowedFieldSeed
+    public interface IPlowedFieldSeed : ISeed
     {
 
     }
