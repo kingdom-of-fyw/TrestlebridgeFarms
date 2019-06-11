@@ -24,6 +24,7 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ($"Place the animal where?");
 
             Console.Write ("> ");
+
             int choice = Int32.Parse(Console.ReadLine ());
 
             farm.DuckHouses[choice - 1].AddResource(duck);

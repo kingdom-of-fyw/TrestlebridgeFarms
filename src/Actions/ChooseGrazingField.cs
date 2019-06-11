@@ -6,10 +6,11 @@ using Trestlebridge.Models.Animals;
 using System.Collections.Generic;
 
 namespace Trestlebridge.Actions {
-    public class ChooseGrazingField {
+    public class ChooseGrazingField 
+    {
         public static void CollectInput (Farm farm, IGrazing animal) {
             Console.Clear();
-
+            
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
                 if(farm.GrazingFields[i].GetCount < farm.GrazingFields[i].Capacity)
@@ -26,7 +27,7 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Place the animal where?");
+            Console.WriteLine ($"Place the {animal} where?");
 
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
