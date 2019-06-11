@@ -24,32 +24,39 @@ namespace Trestlebridge.Actions
 
             int choice = 0;
 
-            try
+            while (choice == 0)
             {
-                choice = Int32.Parse(Console.ReadLine());
-
-                switch (choice)
+                try
                 {
-                    case 1:
-                        ChoosePlowedField.CollectInput(farm, new Sesame());
-                        Console.WriteLine("Chickens do not graze, you fool!");
-                        break;
-                    case 2:
-                        ChooseEither.CollectInput(farm, new Sunflower());
-                        break;
-                    case 3:
-                        ChooseNaturalField.CollectInput(farm, new WildFlower());
-                        Console.WriteLine("Ducks do not graze, you fool!");
-                        break;
-                    default:
-                        break;
+                    choice = Int32.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            ChoosePlowedField.CollectInput(farm, new Sesame());
+                            Console.WriteLine("Chickens do not graze, you fool!");
+                            break;
+                        case 2:
+                            ChooseEither.CollectInput(farm, new Sunflower());
+                            break;
+                        case 3:
+                            ChooseNaturalField.CollectInput(farm, new WildFlower());
+                            Console.WriteLine("Ducks do not graze, you fool!");
+                            break;
+                        default:
+                            Console.WriteLine("That was an invalid selection. Hit enter to continue to the main menu");
+                            Console.Read();
+                            break;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Please input a valid number from the above menu.");
+                    Console.Write(" >");
                 }
             }
-            catch (FormatException)
-            {
-                Console.WriteLine("Please input a valid number from the above menu.");
-                Console.Write(" >");
-            }
+
+
 
 
 
