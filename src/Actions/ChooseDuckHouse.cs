@@ -4,30 +4,34 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 
-namespace Trestlebridge.Actions {
-    public class ChooseDuckHouse {
-        public static void CollectInput (Farm farm, Duck duck) {
+namespace Trestlebridge.Actions
+{
+    public class ChooseDuckHouse
+    {
+        public static void CollectInput(Farm farm, Duck duck)
+        {
             Console.Clear();
 
             for (int i = 0; i < farm.DuckHouses.Count; i++)
             {
-                if(farm.DuckHouses[i].GetCount < farm.DuckHouses[i].Capacity)
+                if (farm.DuckHouses[i].GetCount < farm.DuckHouses[i].Capacity)
                 {
-                    Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i].GetCount} ducks)");    
+                    Console.WriteLine($"{i + 1}. Duck House ({farm.DuckHouses[i].GetCount} ducks)");
+
+                    Console.WriteLine();
+
+                    // How can I output the type of animal chosen here?
+                    Console.WriteLine($"Place the animal where?");
+
+                    Console.Write("> ");
+                    int choice = Int32.Parse(Console.ReadLine());
+
+                    farm.DuckHouses[choice - 1].AddResource(duck);
                 }
-                
+
             }
 
-            Console.WriteLine ();
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Place the animal where?");
-
-            Console.Write ("> ");
-
-            int choice = Int32.Parse(Console.ReadLine ());
-
-            farm.DuckHouses[choice - 1].AddResource(duck);
 
             /*
                 Couldn't get this to work. Can you?
