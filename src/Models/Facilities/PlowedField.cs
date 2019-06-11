@@ -8,67 +8,94 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowedField : IStorage, IFacility<IPlowedFieldSeed>
-  {
-    private int _capacity = 13;
-    private Guid _id = Guid.NewGuid();
-    private List<IPlowedFieldSeed> _listOfPlants = new List<IPlowedFieldSeed>();
-
-    private string _FacilityType = "PlowedField";
-
-    public string FacilityType
+    public class PlowedField : IStorage, IFacility<ISeed>
     {
-      get
-      {
-        return _FacilityType;
-      }
+        private int _capacity = 13;
+        private Guid _id = Guid.NewGuid();
+        private List<ISeed> _listOfPlants = new List<ISeed>();
+
+        private string _FacilityType = "PlowedField";
+
+        public string FacilityType
+        {
+            get
+            {
+                return _FacilityType;
+            }
+        }
+        public int GetCount
+        {
+            get
+            {
+                return _listOfPlants.Count;
+            }
+        }
+        public Dictionary<string, int> GetTypeCount()
+        {
+            // get
+            // {
+            int SesameCount = 0;
+            int SunflowerCount = 0;
+
+            foreach (IPlowedFieldSeed t in _listOfPlants)
+            {
+                switch (t.GetType().Name)
+                {
+                    case "Sesame":
+                        SesameCount += 1;
+                        break;
+                    case "Sunflower":
+                        SunflowerCount += 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return new Dictionary<string, int>(){
+                    {"Sesame", SesameCount}, {"Sunflower", SunflowerCount}
+                };
+
+            // }
+        }
+        public double Capacity
+        {
+            get
+            {
+                return _capacity;
+            }
+        }
+        public void AddResource(ISeed plant)
+        {
+
+            try
+            {
+                _listOfPlants.Add(plant);
+            }
+            catch
+            {
+                // throw new NotImplementedException();
+            }
+
+
+        }
+
+        public void AddResource(List<ISeed> plants)
+        {
+            _listOfPlants = plants;
+
+            // throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder output = new StringBuilder();
+            string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+
+            output.Append($"Plowed Field {shortId} has {this._listOfPlants.Count} Plants\n");
+            this._listOfPlants.ForEach(p => output.Append($"   {p}\n"));
+
+            return output.ToString();
+        }
+
     }
-    public int GetCount
-    {
-      get
-      {
-        return _listOfPlants.Count;
-      }
-    }
-    public double Capacity
-    {
-      get
-      {
-        return _capacity;
-      }
-    }
-    public void AddResource(IPlowedFieldSeed plant)
-    {
-
-      try
-      {
-        _listOfPlants.Add(plant);
-      }
-      catch
-      {
-        // throw new NotImplementedException();
-      }
-
-
-    }
-
-    public void AddResource(List<IPlowedFieldSeed> plants)
-    {
-      _listOfPlants = plants;
-
-      // throw new NotImplementedException();
-    }
-
-    public override string ToString()
-    {
-      StringBuilder output = new StringBuilder();
-      string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-
-      output.Append($"Plowed Field {shortId} has {this._listOfPlants.Count} Plants\n");
-      this._listOfPlants.ForEach(p => output.Append($"   {p}\n"));
-
-      return output.ToString();
-    }
-
-  }
 }
