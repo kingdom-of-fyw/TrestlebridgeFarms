@@ -6,11 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IFacility<IGrazing>
+    public class GrazingField : IStorage, IFacility<IGrazing>
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
+        private string _FacilityType = "GrazingField";           
         private List<IGrazing> _animals = new List<IGrazing>();
         public int GetCount
         {
@@ -60,10 +61,13 @@ namespace Trestlebridge.Models.Facilities
             // }
         }
 
-        public double Capacity
-        {
-            get
-            {
+        public string FacilityType {
+            get {
+                return _FacilityType;
+            }
+        }
+        public double Capacity {
+            get {
                 return _capacity;
             }
         }

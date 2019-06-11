@@ -31,6 +31,12 @@ namespace Trestlebridge.Actions
 
             }
 
+<<<<<<< HEAD
+=======
+            Console.Write ("> ");
+
+            int choice = Int32.Parse(Console.ReadLine ());
+>>>>>>> master
 
 
             /*
