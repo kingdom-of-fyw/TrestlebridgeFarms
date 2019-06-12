@@ -1,6 +1,7 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface ISeed {
+    public interface ISeed : IResource
+    {
 
     }
     

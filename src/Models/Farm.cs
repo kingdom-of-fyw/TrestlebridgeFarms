@@ -12,11 +12,11 @@ namespace Trestlebridge.Models
   public class Farm
   {
 
-    public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-    public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
-    public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
-    public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
-    public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+    public List<IFacility<IGrazing>> GrazingFields { get; } = new List<IFacility<IGrazing>>();
+    public List<IFacility<Duck>> DuckHouses { get; } = new List<IFacility<Duck>>();
+    public List<IFacility<Chicken>> ChickenHouses { get; } = new List<IFacility<Chicken>>();
+    public List<IFacility<ISeed>> NaturalFields { get; } = new List<IFacility<ISeed>>();
+    public List<IFacility<ISeed>> PlowedFields { get; } = new List<IFacility<ISeed>>();
 
     /*
         This method must specify the correct product interface of the

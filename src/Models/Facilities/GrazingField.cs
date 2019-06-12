@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
-
+using System.Linq;
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -29,46 +29,12 @@ namespace Trestlebridge.Models.Facilities
                 return _FacilityType;
             }
         }
-        public Dictionary<string, int> GetTypeCount()
+        public Dictionary<string, int> GetTypeCount() 
         {
-            // get
-            // {
-                int CowCount = 0;
-                int GoatCount = 0;
-                int OstrichCount = 0;
-                int PigCount = 0;
-                int SheepCount = 0;
+            return (_animals.GroupBy(o => o.Type).ToDictionary(g=> g.Key, g => g.Count()));
+            }
 
-                foreach (IGrazing t in _animals)
-                {
-                    switch (t.GetType().Name)
-                    {
-                        case "Cow":
-                            CowCount += 1;
-                            break;
-                        case "Goat":
-                            GoatCount += 1;
-                            break;
-                        case "Ostrich":
-                            OstrichCount += 1;
-                            break;
-                        case "Sheep":
-                            SheepCount += 1;
-                            break;
-                        case "Pig":
-                            PigCount += 1;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                return new Dictionary<string, int>(){
-                    {"Cow", CowCount}, {"Goat", GoatCount}, {"Ostrich", OstrichCount}, {"Sheep", SheepCount},
-                    {"Pig", PigCount}
-                };
 
-            // }
-        }
 
         public double Capacity {
             get {
@@ -111,6 +77,15 @@ namespace Trestlebridge.Models.Facilities
 
             output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
+
+            return output.ToString();
+        }
+            public string ToShortString()
+        {
+            StringBuilder output = new StringBuilder();
+            string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
 
             return output.ToString();
         }

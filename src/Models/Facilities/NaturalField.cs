@@ -5,6 +5,8 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Plants;
+using System.Linq;
+
 
 namespace Trestlebridge.Models.Facilities
 {
@@ -30,33 +32,10 @@ namespace Trestlebridge.Models.Facilities
                 return _listOfPlants.Count;
             }
         }
-        public Dictionary<string, int> GetTypeCount()
+        public Dictionary<string, int> GetTypeCount() 
         {
-            // get
-            // {
-            int WildflowerCount = 0;
-            int SunflowerCount = 0;
-
-            foreach (ISeed t in _listOfPlants)
-            {
-                switch (t.GetType().Name)
-                {
-                    case "WildFlower":
-                        WildflowerCount += 1;
-                        break;
-                    case "Sunflower":
-                        SunflowerCount += 1;
-                        break;
-                    default:
-                        break;
-                }
+            return (_listOfPlants.GroupBy(o => o.Type).ToDictionary(g=> g.Key, g => g.Count()));
             }
-            return new Dictionary<string, int>(){
-                    {"WildFlower", WildflowerCount}, {"Sunflower", SunflowerCount}
-                };
-
-            // }
-        }
         public double Capacity
         {
             get
@@ -93,6 +72,16 @@ namespace Trestlebridge.Models.Facilities
 
             output.Append($"Natural Field {shortId} has {this._listOfPlants.Count} Plants\n");
             this._listOfPlants.ForEach(p => output.Append($"   {p}\n"));
+
+            return output.ToString();
+        }
+
+            public string ToShortString()
+        {
+            StringBuilder output = new StringBuilder();
+            string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+
+            output.Append($"Natural Field {shortId} has {this._listOfPlants.Count} Plants\n");
 
             return output.ToString();
         }

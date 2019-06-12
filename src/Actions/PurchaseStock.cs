@@ -46,39 +46,25 @@ namespace Trestlebridge.Actions
 
           {
             case 1:
-              foreach (ChickenHouse house in farm.ChickenHouses)
-              {
-                Console.WriteLine($"{farm.ChickenHouses.IndexOf(house) + 1}. Chicken House {house.ToString()} has {house.GetCount} chickens.");
-              }
-              farm.ChickenHouses[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Chicken());
-
+            ChooseFacility.CollectInput(farm, farm.ChickenHouses , new Chicken());
               break;
             case 2:
-              NewMethod(farm);
-              farm.GrazingFields[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Cow());
+            ChooseFacility.CollectInput(farm, farm.GrazingFields , new Cow());
               break;
             case 3:
-              foreach (DuckHouse house in farm.DuckHouses)
-              {
-                Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. Duck House {house.ToString()} has {house.GetCount} ducks.");
-              }
-              farm.DuckHouses[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Duck());
+            ChooseFacility.CollectInput(farm, farm.DuckHouses , new Duck());
               break;
             case 4:
-              NewMethod(farm);
-              farm.GrazingFields[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Goat());
+            ChooseFacility.CollectInput(farm, farm.GrazingFields , new Goat());
               break;
             case 5:
-              NewMethod(farm);
-              farm.GrazingFields[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Ostrich());
+            ChooseFacility.CollectInput(farm, farm.GrazingFields , new Ostrich());
               break;
             case 6:
-              NewMethod(farm);
-              farm.GrazingFields[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Pig());
+            ChooseFacility.CollectInput(farm, farm.GrazingFields , new Pig());
               break;
             case 7:
-              NewMethod(farm);
-              farm.GrazingFields[Int32.Parse(Console.ReadLine()) - 1].AddResource(new Sheep());
+            ChooseFacility.CollectInput(farm, farm.GrazingFields , new Sheep());
               break;
             default:
               Console.WriteLine("Invalid selection. Click enter to return to the main menu.");

@@ -54,5 +54,14 @@ namespace Trestlebridge.Models.Facilities
 
       return output.ToString();
     }
+        public string ToShortString()
+    {
+      StringBuilder output = new StringBuilder();
+      string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+
+      output.Append($"Chicken House {shortId} has {this._chickens.Count} chickens\n");
+
+      return output.ToString();
+    }
   }
 }

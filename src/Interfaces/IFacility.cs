@@ -12,5 +12,7 @@ namespace Trestlebridge.Interfaces
         Dictionary<string, int> GetTypeCount();
         void AddResource (T resource);
         void AddResource (List<T> resources);
+
+        string ToShortString();
     }
 }
