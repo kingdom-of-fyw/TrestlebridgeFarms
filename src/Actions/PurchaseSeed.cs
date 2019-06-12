@@ -33,14 +33,14 @@ namespace Trestlebridge.Actions
                     switch (choice)
                     {
                         case 1:
-                            ChoosePlowedField.CollectInput(farm, new Sesame());
+                            ChooseFacility.CollectInput(farm, farm.PlowedFields, new Sesame());
                             Console.WriteLine("Chickens do not graze, you fool!");
                             break;
                         case 2:
-                            ChooseEither.CollectInput(farm, new Sunflower());
+                            ChooseFacility.CollectInput(farm, farm.NaturalFields, farm.PlowedFields, new Sunflower());
                             break;
                         case 3:
-                            ChooseNaturalField.CollectInput(farm, new WildFlower());
+                            ChooseFacility.CollectInput(farm, farm.NaturalFields, new WildFlower());
                             Console.WriteLine("Ducks do not graze, you fool!");
                             break;
                         default:

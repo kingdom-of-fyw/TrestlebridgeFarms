@@ -6,18 +6,27 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IStorage, IFacility<IGrazing>
+    public class GrazingField : IFacility<IResource>
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
-
-        private string _FacilityType = "GrazingField";           
-        private List<IGrazing> _animals = new List<IGrazing>();
+          
+        private List<IResource> _animals = new List<IResource>();
         public int GetCount
         {
             get
             {
                 return _animals.Count;
+            }
+        }
+
+        private string _FacilityType = "GrazingField";
+
+        public string FacilityType
+        {
+            get
+            {
+                return _FacilityType;
             }
         }
         public Dictionary<string, int> GetTypeCount()
@@ -61,18 +70,13 @@ namespace Trestlebridge.Models.Facilities
             // }
         }
 
-        public string FacilityType {
-            get {
-                return _FacilityType;
-            }
-        }
         public double Capacity {
             get {
                 return _capacity;
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddResource(IResource animal)
         {
             // TODO: implement this...
             // if(_animals.Count >= _capacity)
@@ -94,7 +98,7 @@ namespace Trestlebridge.Models.Facilities
             // throw new NotImplementedException();
         }
 
-        public void AddResource(List<IGrazing> animals)
+        public void AddResource(List<IResource> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();

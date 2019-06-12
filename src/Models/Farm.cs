@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models
 {
@@ -11,11 +12,11 @@ namespace Trestlebridge.Models
   public class Farm
   {
 
-    public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-    public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
-    public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
-    public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
-    public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+    public List<IFacility<IResource>> GrazingFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> DuckHouses { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> ChickenHouses { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> NaturalFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> PlowedFields { get; } = new List<IFacility<IResource>>();
 
     /*
         This method must specify the correct product interface of the
@@ -23,37 +24,35 @@ namespace Trestlebridge.Models
      */
     public void PurchaseResource<T>(IResource resource, int index)
     {
-      Console.WriteLine(typeof(T).ToString());
-      switch (typeof(T).ToString())
+      switch (typeof(T).ToString().Split(".")[3].ToString())
       {
-        case "Cow":
-          GrazingFields[index].AddResource((IGrazing)resource);
+        case "Chicken":
+          ChickenHouses[index].AddResource((Chicken)resource);
           break;
         default:
           break;
       }
     }
 
-    public void AddFacility(dynamic facility)
+    public void AddFacility(object facility)
     {
-      switch (facility.FacilityType)
+      switch (facility)
       {
-        case "ChickenHouse":
-          ChickenHouses.Add(facility);
+        case ChickenHouse C:
+          ChickenHouses.Add(C);
           break;
-        case "DuckHouse":
-          DuckHouses.Add(facility);
+        case DuckHouse D:
+          DuckHouses.Add(D);
           break;
-        case "PlowedField":
-          PlowedFields.Add(facility);
+        case PlowedField P:
+          PlowedFields.Add(P);
           break;
-        case "GrazingField":
-          GrazingFields.Add(facility);
+        case GrazingField G:
+          GrazingFields.Add(G);
           break;
-        case "NaturalField":
-          NaturalFields.Add(facility);
+        case NaturalField N:
+          NaturalFields.Add(N);
           break;
-
       }
     }
 
@@ -62,9 +61,11 @@ namespace Trestlebridge.Models
     {
       StringBuilder report = new StringBuilder();
 
-      GrazingFields.ForEach(gf => report.Append(gf));
-      DuckHouses.ForEach(gf => report.Append(gf));
       ChickenHouses.ForEach(gf => report.Append(gf));
+      DuckHouses.ForEach(gf => report.Append(gf));
+      GrazingFields.ForEach(gf => report.Append(gf));
+
+
       NaturalFields.ForEach(gf => report.Append(gf));
       PlowedFields.ForEach(gf => report.Append(gf));
 

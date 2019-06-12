@@ -8,22 +8,13 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class ChickenHouse : IStorage, IFacility<Chicken>
+  public class ChickenHouse :  IFacility<IResource>
   {
     private int _capacity = 15;
     private Guid _id = Guid.NewGuid();
-    private List<Chicken> _chickens = new List<Chicken>();
-
-    private string _FacilityType = "ChickenHouse";
-
-    public string FacilityType
-    {
-      get
-      {
-        return _FacilityType;
-      }
-    }
-
+    private List<IResource> _chickens = new List<IResource>();
+    
+    
     public int GetCount
     {
       get
@@ -42,13 +33,13 @@ namespace Trestlebridge.Models.Facilities
         return _capacity;
       }
     }
-    public void AddResource(Chicken chicken)
+    public void AddResource(IResource resource)
     {
-      _chickens.Add(chicken);
+      _chickens.Add(resource);
 
 
     }
-    public void AddResource(List<Chicken> chickens)
+    public void AddResource(List<IResource> chickens)
     {
       _chickens = chickens;
 

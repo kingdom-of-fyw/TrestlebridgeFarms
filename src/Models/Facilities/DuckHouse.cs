@@ -8,11 +8,11 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IStorage, IFacility<Duck>
+    public class DuckHouse : IFacility<IResource>
     {
         private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
-        private List<Duck> _listOfDucks = new List<Duck>();
+        private List<IResource> _listOfDucks = new List<IResource>();
 
         private string _FacilityType = "DuckHouse";
 
@@ -41,7 +41,7 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void AddResource(Duck duck)
+        public void AddResource(IResource duck)
         {
 
             try
@@ -56,7 +56,7 @@ namespace Trestlebridge.Models.Facilities
 
         }
 
-        public void AddResource(List<Duck> ducks)
+        public void AddResource(List<IResource> ducks)
         {
             _listOfDucks = ducks;
 

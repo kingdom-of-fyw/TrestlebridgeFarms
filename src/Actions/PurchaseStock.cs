@@ -8,15 +8,24 @@ namespace Trestlebridge.Actions
 {
     public class PurchaseStock
     {
+
+        private static void NewMethod(Farm farm)
+        {
+            foreach (IFacility<IResource> field in farm.GrazingFields)
+            {
+                Console.WriteLine($"{farm.GrazingFields.IndexOf(field) + 1}. Grazing field {field.ToString()} has {field.GetCount} animals.");
+            }
+        }
+
         public static void CollectInput(Farm farm)
         {
-            Console.WriteLine(@"1. Chicken");
-            Console.WriteLine(@"2. Cow");
-            Console.WriteLine(@"3. Duck");
-            Console.WriteLine(@"4. Goat");
-            Console.WriteLine(@"5. Ostrich");
-            Console.WriteLine(@"6. Pig");
-            Console.WriteLine(@"7. Sheep");
+            Console.WriteLine($"1. Chicken");
+            Console.WriteLine($"2. Cow");
+            Console.WriteLine($"3. Duck");
+            Console.WriteLine($"4. Goat");
+            Console.WriteLine($"5. Ostrich");
+            Console.WriteLine($"6. Pig");
+            Console.WriteLine($"7. Sheep");
 
 
             Console.WriteLine();
@@ -32,32 +41,32 @@ namespace Trestlebridge.Actions
                 {
                     choice = Int32.Parse(Console.ReadLine());
 
-
+                    Console.Clear();
                     switch (choice)
+
                     {
                         case 1:
-                            ChooseChickenHouse.CollectInput(farm, new Chicken());
-                            Console.WriteLine("Chickens do not graze, you fool!");
-
+                            ChooseFacility.CollectInput(farm, farm.ChickenHouses, new Chicken());
                             break;
                         case 2:
-                            ChooseGrazingField.CollectInput(farm, new Cow());
+                            ChooseFacility.CollectInput(farm, farm.GrazingFields, new Cow());
                             break;
                         case 3:
-                            ChooseDuckHouse.CollectInput(farm, new Duck());
-                            Console.WriteLine("Ducks do not graze, you fool!");
+
+                            ChooseFacility.CollectInput(farm, farm.DuckHouses, new Duck());
                             break;
                         case 4:
-                            ChooseGrazingField.CollectInput(farm, new Goat());
+                            ChooseFacility.CollectInput(farm, farm.GrazingFields, new Goat());
                             break;
                         case 5:
-                            ChooseGrazingField.CollectInput(farm, new Ostrich());
+                            ChooseFacility.CollectInput(farm, farm.GrazingFields, new Ostrich());
                             break;
                         case 6:
-                            ChooseGrazingField.CollectInput(farm, new Pig());
+
+                            ChooseFacility.CollectInput(farm, farm.GrazingFields, new Pig());
                             break;
                         case 7:
-                            ChooseGrazingField.CollectInput(farm, new Sheep());
+                            ChooseFacility.CollectInput(farm, farm.GrazingFields, new Sheep());
                             break;
                         default:
                             Console.WriteLine("Invalid selection. Click enter to return to the main menu.");
@@ -71,10 +80,6 @@ namespace Trestlebridge.Actions
                     Console.Write("> ");
                 }
             }
-
-            
-
-            
         }
     }
 }
