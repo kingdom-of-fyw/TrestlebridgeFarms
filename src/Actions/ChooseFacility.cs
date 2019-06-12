@@ -32,11 +32,12 @@ namespace Trestlebridge.Actions
                     Console.WriteLine($"{copy.IndexOf(facility) + 1}) {facility}");
                     if(facility.GetTypeCount().Count != 0)
                     {
-                        Console.WriteLine($"List of resources in facility {copy.IndexOf(facility) + 1}:");
+                        Console.WriteLine($"     List of animals in facility {copy.IndexOf(facility) + 1}:");
                     foreach(KeyValuePair<string, int> kvp in facility.GetTypeCount())
                     {
-                        Console.Write($"{kvp.Key}: {kvp.Value} ");
+                        Console.Write($"     {kvp.Key}: {kvp.Value} ");
                     }
+                        Console.WriteLine();
                     }
                     
                     Console.WriteLine();
