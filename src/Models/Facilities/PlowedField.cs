@@ -8,11 +8,11 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class PlowedField : IFacility<ISeed>
+    public class PlowedField : IFacility<IResource>
     {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
-        private List<ISeed> _listOfPlants = new List<ISeed>();
+        private List<IResource> _listOfPlants = new List<IResource>();
 
         private string _FacilityType = "PlowedField";
 
@@ -37,7 +37,7 @@ namespace Trestlebridge.Models.Facilities
             int SesameCount = 0;
             int SunflowerCount = 0;
 
-            foreach (ISeed t in _listOfPlants)
+            foreach (IResource t in _listOfPlants)
             {
                 switch (t.GetType().Name)
                 {
@@ -64,7 +64,7 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-        public void AddResource(ISeed plant)
+        public void AddResource(IResource plant)
         {
 
             try
@@ -79,7 +79,7 @@ namespace Trestlebridge.Models.Facilities
 
         }
 
-        public void AddResource(List<ISeed> plants)
+        public void AddResource(List<IResource> plants)
         {
             _listOfPlants = plants;
 

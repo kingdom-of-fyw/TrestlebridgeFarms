@@ -15,8 +15,8 @@ namespace Trestlebridge.Models
     public List<IFacility<IResource>> GrazingFields { get; } = new List<IFacility<IResource>>();
     public List<IFacility<IResource>> DuckHouses { get; } = new List<IFacility<IResource>>();
     public List<IFacility<IResource>> ChickenHouses { get; } = new List<IFacility<IResource>>();
-    public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
-    public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+    public List<IFacility<IResource>> NaturalFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> PlowedFields { get; } = new List<IFacility<IResource>>();
 
     /*
         This method must specify the correct product interface of the
