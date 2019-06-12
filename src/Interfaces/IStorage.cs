@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IStorage
+    public class IStorage
     {
       string FacilityType {get;}
     }

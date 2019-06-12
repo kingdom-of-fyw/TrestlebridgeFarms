@@ -10,14 +10,23 @@ namespace Trestlebridge.Models.Facilities
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
-
-        private string _FacilityType = "GrazingField";           
+          
         private List<IGrazing> _animals = new List<IGrazing>();
         public int GetCount
         {
             get
             {
                 return _animals.Count;
+            }
+        }
+
+        private string _FacilityType = "GrazingField";
+
+        public string FacilityType
+        {
+            get
+            {
+                return _FacilityType;
             }
         }
         public Dictionary<string, int> GetTypeCount()
@@ -61,11 +70,6 @@ namespace Trestlebridge.Models.Facilities
             // }
         }
 
-        public string FacilityType {
-            get {
-                return _FacilityType;
-            }
-        }
         public double Capacity {
             get {
                 return _capacity;
