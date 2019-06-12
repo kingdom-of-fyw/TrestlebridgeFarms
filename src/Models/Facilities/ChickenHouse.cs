@@ -22,6 +22,10 @@ namespace Trestlebridge.Models.Facilities
         return _chickens.Count;
       }
     }
+
+    public Dictionary<string, int> GetTypeCount(){
+      return new Dictionary<string, int>();
+    }
     public double Capacity
     {
       get

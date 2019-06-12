@@ -7,7 +7,9 @@ namespace Trestlebridge.Interfaces
     {
         double Capacity { get; }
         
+        int GetCount {get;}
 
+        Dictionary<string, int> GetTypeCount();
         void AddResource (T resource);
         void AddResource (List<T> resources);
     }

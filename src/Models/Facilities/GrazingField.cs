@@ -8,10 +8,9 @@ namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IStorage, IFacility<IGrazing>
     {
-        private int _capacity = 50;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
-
-        private string _FacilityType = "GrazingField";           
+          
         private List<IGrazing> _animals = new List<IGrazing>();
         public int GetCount
         {
@@ -20,10 +19,20 @@ namespace Trestlebridge.Models.Facilities
                 return _animals.Count;
             }
         }
-        public Dictionary<string, int> GetTypeCount
+
+        private string _FacilityType = "GrazingField";
+
+        public string FacilityType
         {
             get
             {
+                return _FacilityType;
+            }
+        }
+        public Dictionary<string, int> GetTypeCount()
+        {
+            // get
+            // {
                 int CowCount = 0;
                 int GoatCount = 0;
                 int OstrichCount = 0;
@@ -58,14 +67,9 @@ namespace Trestlebridge.Models.Facilities
                     {"Pig", PigCount}
                 };
 
-            }
+            // }
         }
 
-        public string FacilityType {
-            get {
-                return _FacilityType;
-            }
-        }
         public double Capacity {
             get {
                 return _capacity;
@@ -81,7 +85,15 @@ namespace Trestlebridge.Models.Facilities
             //     // Actions.ChooseGrazingField.CollectInput(animal);
             // }
 
-            _animals.Add(animal);
+            try
+            {
+                _animals.Add(animal);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Invalid Selection!");
+            }
+            
 
             // throw new NotImplementedException();
         }
