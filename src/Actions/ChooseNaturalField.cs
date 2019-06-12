@@ -21,7 +21,7 @@ namespace Trestlebridge.Actions
             {
                 if (farm.NaturalFields[i].GetCount < farm.NaturalFields[i].Capacity)
                 {
-                    AvailableFields.Add(farm.NaturalFields[i]);
+                    // AvailableFields.Add(farm.NaturalFields[i]);
                 }
             }
 

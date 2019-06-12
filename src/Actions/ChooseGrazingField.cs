@@ -20,7 +20,7 @@ namespace Trestlebridge.Actions
             {
                 if (farm.GrazingFields[i].GetCount < farm.GrazingFields[i].Capacity)
                 {
-                    AvailableFields.Add(farm.GrazingFields[i]);
+                    // AvailableFields.Add(farm.GrazingFields[i]);
                 }
             }
 
@@ -66,7 +66,7 @@ namespace Trestlebridge.Actions
                         try
                         {
                             field = AvailableFields[choice-1];
-                            AvailableFields[choice-1].AddResource(animal);
+                            // AvailableFields[choice-1].AddResource(animal);
                             Console.WriteLine(AvailableFields[choice - 1]);
                             Console.WriteLine();
                             Console.WriteLine("Press any key to return to the main menu.");
@@ -93,7 +93,7 @@ namespace Trestlebridge.Actions
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.
              */
-            // farm.PurchaseResource<IGrazing>(animal, choice)
+            // farm.PurchaseResource<IGrazing>(animal, choice);
 
         }
     }

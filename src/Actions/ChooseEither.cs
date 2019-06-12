@@ -21,7 +21,7 @@ namespace Trestlebridge.Actions
             {
                 if (farm.NaturalFields[i].GetCount < farm.NaturalFields[i].Capacity)
                 {
-                    AvailableNattyFields.Add(farm.NaturalFields[i]);
+                    // AvailableNattyFields.Add(farm.NaturalFields[i]);
                 }
             }
             //List of available Plowable fields
@@ -31,7 +31,7 @@ namespace Trestlebridge.Actions
             {
                 if (farm.PlowedFields[i].GetCount < farm.PlowedFields[i].Capacity)
                 {
-                    AvailablePlowwyFields.Add(farm.PlowedFields[i]);
+                    // AvailablePlowwyFields.Add(farm.PlowedFields[i]);
                 }
             }
             //List of available fields of both types: Shared with both IFacility and ISeed

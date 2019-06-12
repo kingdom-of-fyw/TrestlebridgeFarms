@@ -3,7 +3,7 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class WildFlower : IResource, IComposting, INaturalFieldSeed, ISeed
+    public class WildFlower : IResource, IComposting, ISeed
     {
         private int _seedsProduced = 40;
         public string Type { get; } = "WildFlower";

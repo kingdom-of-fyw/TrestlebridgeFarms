@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class GrazingField : IStorage, IFacility<IGrazing>
+    public class GrazingField : IFacility<IResource>
     {
         private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
           
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private List<IResource> _animals = new List<IResource>();
         public int GetCount
         {
             get
@@ -76,7 +76,7 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IGrazing animal)
+        public void AddResource(IResource animal)
         {
             // TODO: implement this...
             // if(_animals.Count >= _capacity)
@@ -98,7 +98,7 @@ namespace Trestlebridge.Models.Facilities
             // throw new NotImplementedException();
         }
 
-        public void AddResource(List<IGrazing> animals)
+        public void AddResource(List<IResource> animals)
         {
             // TODO: implement this...
             throw new NotImplementedException();

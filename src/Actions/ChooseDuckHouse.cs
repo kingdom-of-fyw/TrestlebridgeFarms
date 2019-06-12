@@ -20,7 +20,7 @@ namespace Trestlebridge.Actions
             {
                 if(farm.DuckHouses[i].GetCount < farm.DuckHouses[i].Capacity)
                 {
-                    AvailableDuckHouses.Add(farm.DuckHouses[i]);
+                    // AvailableDuckHouses.Add(farm.DuckHouses[i]);
                 }
             }
 
