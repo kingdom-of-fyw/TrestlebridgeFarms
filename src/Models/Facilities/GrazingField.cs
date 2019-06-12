@@ -19,6 +19,16 @@ namespace Trestlebridge.Models.Facilities
                 return _animals.Count;
             }
         }
+
+        private string _FacilityType = "GrazingField";
+
+        public string FacilityType
+        {
+            get
+            {
+                return _FacilityType;
+            }
+        }
         public Dictionary<string, int> GetTypeCount()
         {
             // get
